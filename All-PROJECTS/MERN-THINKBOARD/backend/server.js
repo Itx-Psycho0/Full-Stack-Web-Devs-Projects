@@ -4,7 +4,7 @@ import express from "express"
 const app = express()
 
 app.get("/api/notes",(req,res)=>{
-    res.status(200).send("You got 5 notes")
+    res.status(200).send("You got 10 notes")
 })
 app.post("/api/notes",(req, res)=>{
     res.status(201).send("Your note has created")
