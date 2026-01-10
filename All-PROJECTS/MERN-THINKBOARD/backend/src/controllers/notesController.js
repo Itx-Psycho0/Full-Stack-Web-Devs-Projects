@@ -1,5 +1,9 @@
-export const getNote = (req,res) => {
-    res.status(200).send("hello i fetch the data")
+import Note from "../models/Note.js"
+
+export async function getNote(req,res){
+    try{
+        const notes = await Note
+    }
 }
 
 export const postNote = (req,res) => {
