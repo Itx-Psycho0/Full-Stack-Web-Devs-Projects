@@ -2,7 +2,11 @@ import Note from "../models/Note.js"
 
 export async function getNote(req,res){
     try{
-        const notes = await Note
+        const notes = await Note.find()
+        res.status(200).json(notes)
+    }catch(err){
+        console.log(err)
+        res.status(500).json({message:err.message})
     }
 }
 
