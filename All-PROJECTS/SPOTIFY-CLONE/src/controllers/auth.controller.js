@@ -1,9 +1,10 @@
 const userModel = require("../models/user.model");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 const registerUser = async (req, res) => {
   try {
-    const { username, password, email, role } = req.body;
+    const { username, password, email, role="user" } = req.body;
     // Check if the user already exists
     const existingUser = await userModel.findOne({
         $or: [{ username }, { email }],
@@ -11,8 +12,9 @@ const registerUser = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     } else {
+        const hashedPassword = await bcrypt.hash(password, 10);
       // Create a new user
-      const newUser = new userModel({ username, password, email, role });
+      const newUser = new userModel({ username, password: hashedPassword, email, role });
       const token = jwt.sign({ id: newUser._id, role: newUser.role }, process.env.JWT_SECRET, { expiresIn: "1h" });
       res.cookie("token", token, { httpOnly: true });
       newUser.token = token;
@@ -32,4 +34,4 @@ const registerUser = async (req, res) => {
   }
 };
 
-module.exports = registerUser;
+module.exports = {registerUser};
