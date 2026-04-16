@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-const layoutPage = () => {
+const LayoutPage = () => {
   return (
     <>
     <div>layoutPage</div>
@@ -12,4 +12,4 @@ const layoutPage = () => {
   )
 }
 
-export default layoutPage
+export default LayoutPage

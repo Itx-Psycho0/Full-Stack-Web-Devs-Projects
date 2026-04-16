@@ -1,9 +1,9 @@
 import React from 'react'
 
-const previewPage = () => {
+const PreviewPage = () => {
   return (
     <div>previewPage</div>
   )
 }
 
-export default previewPage
+export default PreviewPage

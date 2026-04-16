@@ -1,9 +1,9 @@
 import React from 'react'
 
-const resumeBuilderPage = () => {
+const ResumeBuilderPage = () => {
   return (
     <div>resumeBuilderPage</div>
   )
 }
 
-export default resumeBuilderPage
+export default ResumeBuilderPage
