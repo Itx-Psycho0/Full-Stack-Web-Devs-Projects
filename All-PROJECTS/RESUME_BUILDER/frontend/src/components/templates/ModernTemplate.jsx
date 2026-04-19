@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Globe } from "lucide-react";
+import { Mail, Phone, MapPin, Link, Globe } from "lucide-react";
 
 const ModernTemplate = ({ data, accentColor }) => {
 	const formatDate = (dateStr) => {
@@ -39,7 +39,7 @@ const ModernTemplate = ({ data, accentColor }) => {
 					)}
 					{data.personal_info?.linkedin && (
 						<a target="_blank" href={data.personal_info?.linkedin} className="flex items-center gap-2">
-							<Linkedin className="size-4" />
+							<Link className="size-4" />
 							<span className="break-all text-xs">{data.personal_info.linkedin.split("https://www.")[1] ? data.personal_info.linkedin.split("https://www.")[1] : data.personal_info.linkedin}</span>
 						</a>
 					)}
@@ -103,7 +103,7 @@ const ModernTemplate = ({ data, accentColor }) => {
 
 						<div className="space-y-6">
 							{data.project.map((p, index) => (
-								<div key={index} className="relative pl-6 border-l border-gray-200" style={{borderLeftColor: accentColor}}>
+								<div key={index} className="relative pl-6 border-l border-gray-200" style={{ borderLeftColor: accentColor }}>
 
 
 									<div className="flex justify-between items-start">
